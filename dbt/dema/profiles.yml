@@ -1,0 +1,10 @@
+dema:
+  target: dev
+  outputs:
+    dev:
+      type: clickhouse
+      schema: "{{ env_var('CLICKHOUSE_DB') }}"
+      host: "{{ env_var('CLICKHOUSE_HOST') }}"
+      user: "{{ env_var('CLICKHOUSE_USER') }}"
+      password: "{{ env_var('CLICKHOUSE_PASSWORD') }}"
+      port: 8123

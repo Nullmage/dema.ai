@@ -1,0 +1,67 @@
+version: 2
+models:
+  - name: stg_shopify__inventory
+    description: <description>
+    columns:
+      - name: product_id
+        data_tests:
+          - unique
+          - not_null
+      
+      - name: name
+        data_tests:
+          - not_null
+      
+      - name: quantity
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+      
+      - name: category
+        data_tests:
+          - not_null
+      
+      - name: sub_category
+        data_tests:
+          - not_null
+
+  - name: stg_shopify__orders
+    description: <description>
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - order_id
+            - product_id
+            - date_time
+
+    columns:
+      - name: currency
+        data_tests:
+          - not_null
+      
+      - name: quantity
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+      
+      - name: shipping_cost
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+      
+      - name: amount
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+
+      - name: channel
+        data_tests:
+          - not_null
+      
+      - name: channel_group
+        data_tests:
+          - not_null

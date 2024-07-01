@@ -1,0 +1,4 @@
+version: 2
+models:
+  - name: mart_finance__orders_per_month
+    description: <description>
