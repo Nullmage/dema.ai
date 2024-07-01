@@ -49,7 +49,6 @@ docker exec -it dbt dbt test
 
 ## Possible improvements
 
-* Use an orchestrator (Airflow, Airbyte, etc) to fetch the raw data periodically and trigger dbt
 * Write documentation for the tables, views and columns
 * dbt data freshness can be used to detect stale data
 * Use SQL fluff to ensure consistency for the dbt project (should be executed with git pre-commit hooks)
@@ -57,4 +56,6 @@ docker exec -it dbt dbt test
 
 ## Bigger changes
 
+* Use an orchestrator (Airflow, Airbyte, etc) to fetch the raw data periodically and trigger dbt
 * Orchestrate the infrastructure using Terraform on GCP (BigQuery, PubSub, Dataflow, Cloud Storage, etc)
+* Use dbt Cloud instead of dbt Core
